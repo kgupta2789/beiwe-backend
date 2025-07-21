@@ -126,12 +126,12 @@ def load_git_repo():
     # Git clone the repository into the remote beiwe-backend folder
     # git operations print to both stderr *and* stdout, so redirect them both to the log file
     log.info("Cloning the git repository into the remote server, suppressing more spam...")
-    run(f'cd {REMOTE_HOME_DIR}; git clone https://github.com/onnela-lab/beiwe-backend.git 2>> {LOG_FILE}', quiet=True)
+    run(f'cd {REMOTE_HOME_DIR}; git clone https://github.com/kgupta2789/beiwe-backend.git 2>> {LOG_FILE}', quiet=True)
     
     if DEV_MODE:
-        branch = environ.get("DEV_BRANCH", "main")
+        branch = environ.get("DEV_BRANCH", "master")
     else:
-        branch = "main"
+        branch = "master"
     
     run(f'cd {REMOTE_HOME_DIR}/beiwe-backend; git checkout {branch} 1>> {LOG_FILE} 2>> {LOG_FILE}')
 
